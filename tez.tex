@@ -1,0 +1,170 @@
+
+
+% ---------------------------------------------------------------- %
+%                     LATEX Thesis Template	                   %
+%                                                                  %
+%		         Version 1.5.1                             %
+% ---------------------------------------------------------------- %
+
+% ---------------------------------------------------------------- %
+% Prepared by ITU Informatics Institute	                           %
+%                                                                  %
+% Informatics Institute, ITU Ayazaga Campus                        %
+% Maslak-34469, İstanbul, Turkey                                   %
+% http://www.be.itu.edu.tr                                         %
+% ---------------------------------------------------------------- %
+
+% ---------------------------------------------------------------- %
+% documentclass arguments:             				   %
+% [onluarkali,tekyonlu],[turkce,ingilizce],[yukseklisans,doktora], %
+% [bez,karton],[bilisim,fenbilimleri,sosyalbilimler,avrasya,enerji]%
+% Sample use: \documentclass[onluarkali,ingilizce,yukseklisans,    %
+% karton,fenbilimleri]{itutez}					   %
+% Other sample use: \documentclass[tekyonlu,ingilizce,	           %
+% yukseklisans,bez,bilisim]{itutez}			           %
+% onluarkali: twoside                     			   %
+% tekyonlu: oneside						   %
+% turkce: turkish						   %
+% ingilizce: english						   %
+% yukseklisans: masters						   %
+% doktora: phd							   %
+% bez: hardcover version					   %
+% karton: paperback version					   %
+% bilisim: informatics						   %
+% fenbilimleri: science and technology				   %
+% sosyalbilimler: social sciences				   %
+% avrasya: eurasia						   %
+% enerji: energy						   %
+% ---------------------------------------------------------------- %
+\documentclass[onluarkali,ingilizce,yukseklisans,bez,fenbilimleri]{itutez}
+
+% ---------------------------------------------------------------- %
+% Pay attention to letter case. The structure is case sensitive    %
+% {Name}{SURNAME} means first letter of name is capital and that   %
+% all letters of surname are capital.                              %
+% ---------------------------------------------------------------- %
+
+% ---------------------------------------------------------------- %
+% No titles, only Name and SURNAME must be written.      	   %
+% ---------------------------------------------------------------- %
+\yazar{Name}{SURNAME} 
+\ogrencino{702082003}
+
+% ---------------------------------------------------------------- %
+% If you do not use the structure, do not delete it. Just delete   %
+% the argument. \unvan{} means title.                              %
+% ---------------------------------------------------------------- %
+\unvan{(Any Profession)}
+ 
+% ---------------------------------------------------------------- %
+% For below, the first argument for Turkish, the second is for     %
+% English.       						   %
+% ---------------------------------------------------------------- %
+
+% ---------------------------------------------------------------- %
+% Only the first letters of words must be capital.		   %
+% ---------------------------------------------------------------- %
+\anabilimdali{\.In\c{s}aat M\"uhendisli\u{g}i Anabilim Dal{\i}}{Department of Civil Engineering}
+\programi{Yap{\i} M\"uhendisli\u{g}i Program{\i}}{Structure Engineering Programme}
+
+% ---------------------------------------------------------------- %
+% For paperback version, the submission date to the faculty. For   %
+% hardcover (indigo/black) version, date of defense.		   %
+% ---------------------------------------------------------------- %
+
+\tarih{TEZ\.IN SAVUNULDU\u{G}U AY YIL}{MONTH YEAR OF DEFENSE}
+\tarihKucuk{Tezin savunuldu\u{g}u ay y\i l}{Month year of defense}
+
+% ---------------------------------------------------------------- %
+% Thesis advisor, title, thesis submission date, defense date      %
+% ---------------------------------------------------------------- %
+\tezyoneticisi{Prof. Dr. Name SURNAME}{Istanbul Technical University}   
+
+\baslik{TEZ BA\c SLI\u GI BURAYA GEL\. IR}{GEREKL\.I \.ISE \.IK\.INC\.I SATIR}{GEREKL\.I \.ISE \"U\c C\"UNC\"U SATIR,
+\"U\c{C} SATIRA SI\u{G}DIRINIZ}
+
+\title{THESIS TITLE HERE}{SECOND LINE IF NECESSARY}{THIRD LINE IF NECESSARY, FIT TITLE IN THREE LINES}
+
+
+% ---------------------------------------------------------------- %
+% The date of submission of the paperback to the department.	   %
+% ---------------------------------------------------------------- %
+\tezvermetarih{22 Eyl\"ul 2009}{22 September 2009} 
+
+\tezsavunmatarih{21 Aral\i k 2009}{21 December 2009}
+
+% ---------------------------------------------------------------- %
+% coadvisor and jury information. If you do not use all items,     %
+% leave the corresponding arguments blank such as                  %
+% \esdanismani{}{} 					           %
+% ---------------------------------------------------------------- %
+\esdanismani{Prof. Dr. Name SURNAME}{Istanbul Technical University}   
+
+\juriBir{Prof. Dr. Name SURNAME}{Y\i ld\i z Technical University}
+
+\juriIki{Prof. Dr. Name SURNAME}{Bo\u{g}azi\c{c}i University}
+
+\juriUc{Prof. Dr. Name SURNAME}{Gebze Institute of Technology}
+
+\juriDort{Prof. Dr. Name SURNAME}{\c{S}i\c{s}li Etfal Teaching Hospital}
+
+\juriBes{Prof. Dr. Name SURNAME}{Bilkent University}
+
+\input defs.tex                                        
+
+% ---------------------------------------------------------------- %
+% For dedication page. Leave the argument blank if not used.	   %
+% ---------------------------------------------------------------- %
+\ithaf{To my spouse and children,}
+
+% ---------------------------------------------------------------- %
+% Form the below files						   %
+% ---------------------------------------------------------------- %
+\kisaltmalistesi{\input kisaltmalar.tex}
+\sembollistesi{\input semboller.tex}
+
+\onsoz{\input onsoz.tex}             
+\ozet{\input ozet.tex}               
+\summary{\input summary.tex}             
+
+\begin{document}
+
+% ---------------------------------------------------------------- %
+% Also form the below files. All corresponding inputs should point %
+% to a file.                                                       %
+% ---------------------------------------------------------------- %
+\input ch1.tex                                       
+\input ch2.tex                       
+\input ch3.tex                      
+\input ch4.tex
+\input ch5.tex
+\input ch6.tex
+
+% ---------------------------------------------------------------- %
+% Form tez.bib to contain your references in bibtex format         %
+% use \cite command for citing your references                     %
+% ---------------------------------------------------------------- %
+\bibliographystyle{itubib}        
+\bibliography{tez}
+
+% ---------------------------------------------------------------- %
+% Appendix files. eklerkapak is the appendix title page.           %
+% ---------------------------------------------------------------- %
+\eklerkapak{}
+\input eklerkapak.tex  
+
+% ---------------------------------------------------------------- %
+% \eklerbolum{x} forms and appendix of x chapters. 
+% ---------------------------------------------------------------- %
+\eklerbolum{0}
+\input ekler.tex
+
+% ---------------------------------------------------------------- %
+% The summary page                                                 %
+% ---------------------------------------------------------------- %
+\ozgecmis{\input ozgecmis.tex}
+\end{document}                      
+
+% ---------------------------------------------------------------- %
+% About this template: iletisim@be.itu.edu.tr                      %
+% ---------------------------------------------------------------- %
