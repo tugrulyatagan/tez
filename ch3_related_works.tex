@@ -1,0 +1,22 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{RELATED WORKS}\label{ch:related_works}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The literature related to the work presented in this thesis has started to grow recently. LPWAN technologies and especially LoRa attracted researchers’ attentions lately. Some of these works which studies LoRa/LoRaWAN spreading factor are summarized.
+
+In \cite{7996384}, the authors evaluated the performance of LoRaWAN networks in a smart city scenario. The authors proposed a link measurement and a link performance model for LoRa. The authors also proposed a SINR threshold matrix for modeling LoRa interference between simultaneous but different spreading factor LoRa transmissions. They implemented a LoRa simulator in ns-3 to study scalability and performance of LoRaWAN networks. Their results show that LoRaWAN networks scale well as the number of nodes and gateways increases. They also show that spreading factor assignment has great effect on LoRaWAN network performance.
+
+In \cite{8090518}, another LoRaWAN ns-3 simulator is presented. Authors introduced an error model for determining range as well as interference between multiple simultaneous LoRa transmissions. Their simulator supports LoRaWAN Class A end devices, multiple gateways, both upstream and downstream confirmed messages. Their results show that allocating network parameters such as spreading factor is highly important for the performance of LoRaWAN networks.
+
+In \cite{8267219}, the authors studied the effects of imperfect orthogonality between different LoRa spreading factor transmissions. The authors state that a LoRa transmission can be interfered by a different spreading factor transmission when power of the interfering signal is significantly greater than the reference signal. Their experimental results show that this power difference is around 16 dB. Such a power difference can be seen when an interfering signal is close to a receiver or the sum of interfering signals' energy can create this power difference.
+
+In \cite{8430542}, the authors investigated the impact of the interference caused by simultaneous LoRa transmissions with the same and different spreading factors. They derived aggregated co-SF and inter-SF interference power SIR distributions to capture the coverage distance from the gateway for modeling interference in multiple gateways scenarios. Their results show that transmission among different spreading factors can cause a significant impact in high-density LoRaWAN networks.
+
+In \cite{8115779}, the authors introduced two new algorithms for spreading factor assignment in LoRaWANs. First algorithm assigns spreading factors based on the total number of connected devices, second algorithm assigns spreading factors by balancing air time of the packets in each spreading factor. Based on the simulation results, it is shown that the proposed algorithms give promising results.
+
+In \cite{s17061193}, the authors investigated single gateway LoRaWAN network scalability in terms of the number of end nodes using a simulation model based on real measurements. They measure the impact of two concurrent LoRa transmissions on each other by using physical LoRaWAN end devices and a gateway then they created a simulation model from their measurements. Their results show that LoRaWAN has better scalability than pure ALOHA since a LoRa packet may still go through under collision if the last six symbols of preamble and header of the packet does not collide.
+
+The adaptive data rate (ADR) algorithm recommended by Semtech Corporation utilizes signal to noise ratio (SNR) of the last 20 transmissions to minimize the transmit power and SF while ensuring successful transmissions \cite{lorawan_adr}. The recommended algorithm uses a predefined SF and corresponding required SNR table. The algorithm considers maximum SNR of the last 20 transmissions. The algorithm increases transmit power or decrease data rate in case of low SNR and the opposite in case of high SNR.
+% TODO paraphrase If measured SNR is low then the transmission power is incremented by 3 dB until it reaches the maximum transmission power (14 dB), otherwise the SF is decreased at each step. If the limit (SF7) is reached and there are still steps remaining, then the transmission power is decreased by 3 dB until the minimum transmission power (2 dB) is reached.
+
+% TODO TTN current state of the art https://www.thethingsnetwork.org/docs/lorawan/adr.html

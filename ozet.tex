@@ -1,112 +1,15 @@
-\"Ozet haz\i rlan\i rken 1 sat\i r bo\c{s}luk b\i rak\i l\i r. T\"urk\c{c}e
-tezlerde, T\"urk\c{c}e \"ozet 300 kelimeden az olmamak kayd\i yla 1-3 sayfa,
-{\.I}ngilizce geni\c{s}letilmi\c{s} \"ozet de 3-5 sayfa aras\i nda 
-olmal\i d\i r. 
+Düşük güç geniş alan ağ (DGAA) teknolojileri, geniş coğrafi alanlara yayılmış çok sayıda düşük güçlü cihaza ekonomik kablosuz haberleşme altyapısı sağlar. DGAA teknolojileri veri hızı ve gecikme süresinden feragat edip düşük güç tüketimi ve uzun haberleşme menzili sağlamayı hedefler. Son yıllarda DGAA teknolojileri düşük güç gereksinimi olan özellikle nesnelerin interneti ve akıllı şehir uygulamaları için kullanılmaya başlanmıştır.
 
-{\.I}ngilizce tezlerde ise, {\.I}ngilizce \"ozet 300 kelimeden az olmamak
-kayd\i yla 1-3 sayfa, T\"urk\c{c}e geni\c{s}letilmi\c{s} \"ozet de 
-3-5 sayfa aras\i nda olmal\i d\i r. 
+Bu tezin odağı yaygın olarak kullanılan DGAA teknolojilerinden biri olan LoRa üzerindedir. LoRa, Semtech şirketi tarafından geliştirilen tescilli bir DGAA teknolojisidir. Kâr amacı gütmeyen bir kuruluş olan LoRa Alliance tarafından büyük ölçekli LoRa ağları oluşturmak ve bu ağlar arasında birlikte çalışabilirlik sağlamak amacıyla LoRaWAN adı verilen açık kaynak bir ortama erişim kontrol standardı geliştirilmiştir. LoRaWAN ağlarındaki düşük güçlü cihazlara uç düğüm, birden fazla kanalı sürekli dinleyip şebekeye ve sabit bir hatta sahip cihazlara ise ağ geçidi adı verilir. LoRaWAN düğümleri sadece ağ geçitleri ile haberleşebilir, kendi aralarında haberleşme yapamazlar. Bir uç düğüm birden fazla ağ geçidi tarafından dinlenebilir. Güç tüketimini düşük tutmak için uç düğümlerin haberleşmeleri ALOHA prensibi ile çalışır, yani uç düğümler yayın yapmaya başlamadan önce kablosuz ortamının müsait olup olmadığını kontrol etmezler. Bir uç düğüm haberleşme yaparken başka bir uç düğüm haberleşmeye başlayabilir ve çakışma gerçekleşebilir.
 
-\"Ozetlerde tezde ele al\i nan konu k\i saca tan\i t\i larak, kullan\i lan
-y\"ontemler ve ula\c{s}\i lan sonu\c{c}lar belirtilir.
+LoRa, Chirp Spread Spectrum (CSS) tabanlı LoRa™ adında tescillenmiş bir modülasyon tekniği kullanır. CSS tabanlı olması, uzun menzilli iletişim ve parazitlere karşı dayanıklılık sağlar. LoRa modülasyonu, sinyal frekansının belirli bir kanal içerisinde bandı baştan sona taramasıyla çalışır. Bu taramanın yönü haberleşme sembolünü belirler. Taramanın hızı ise yayılma faktörü (YF) olarak adlandırılır. LoRa 7'den 12'ye kadar 6 farklı yayılma faktörünü desteklemektedir. Bir LoRa haberleşmesinin yayılma faktörünü değiştirerek, veri hızından feda edip, haberleşme menzili arttırılabilir. Kısaca yayılma faktörü arttıkça veri iletim hızı azalır ve güç tüketimi artar fakat haberleşme menzili uzar. Ayrıca farklı LoRa yayılma faktörüne sahip haberleşmeler birbirlerine karşı ortogonaldir. Yani aynı kanal içerisinde farklı yayılma faktörüne sahip LoRa iletişimleri, belirli bir seviyeye kadar birbirlerine parazit oluşturmadan haberleşebilir. Bu sebeple uç düğümlerin yayılma faktörü seçimi gerçekleşen çakışma sayısına ve ağ performansına önemli ölçüde etki eder. Uç düğümlerin kendileri için en iyi yayılma faktörünü seçmesi zordur çünkü uç düğümler etraflarındaki yayınlardan haberdar değildir. Uç düğümler güç tüketimini düşük tutmak ve haberleşme süresini kısa tutup çakışma olasılığını düşürmek amacıyla ağ geçidi ile haberleşebilecekleri en düşük yayılma faktörünü seçerler. Fakat etraflarındaki diğer uç düğümler de aynı yayılma faktörü ile yayın yaptıklarında çakışma ihtimalli artar. Özellikle yoğun uç düğüm dağılımına sahip ağlarda aynı yayılma faktörlü haberleşmeler ağ performansını ciddi şekilde düşürebilir. Bazı durumlarda uç düğümler ağ geçidine yakın olsalar bile daha yüksek bir yayılma faktörü seçmeleri ağdaki başarılı paket iletim oranını artırabilir. Bu çalışma içerisinde, LoRaWAN ağları için yayılma faktörü atamasını iyileştirmek amacıyla yapılmış diğer akademik çalışmalar araştırılmıştır ve güncel teknolojik durum incelenmiştir.
 
-\"Ozetlerde kaynak, \c{s}ekil, \c{c}izelge verilmez.
+Bu çalışmada yayılma faktörü seçiminin LoRaWAN ağ performansına etkisini gözlemlemek amacıyla Python programlama dili ile bir ayrık olay simülasyon yazılımı geliştirilmiştir. Geliştirilen simülasyon aracı ile çoklu ağ geçitlerine ve uç düğümlere sahip LoRaWAN ağları simüle edilebilir. Simülasyon aracı, ağ geçidi sayısı, uç düğüm sayısı, ağ topolojisi yarıçapı, paket büyüklüğü, paket üretilme sıklığı gibi girdiler alarak, üretilen paket sayısı, iletilen paket sayısı, çakışmaya uğramış paket sayısı, hassasiyetin altında kalmış paket sayısı, ağ paket iletilme oranı, ağ veri hızı, toplam iletim enerji tüketimi gibi çıktılar üretebilir. 
 
-\"Ozetlerin ba\c{s}\i nda, birinci dereceden ba\c{s}l\i k format\i nda
-tezin ad{\i} (\"once 72, sonra 18 punto aral\i k b{\i}rak{\i}larak ve 1
-sat\i r aral\i kl{\i} olarak) yaz\i lacakt\i r. Ba\c{s}l\i \u{g}\i n
-alt\i na b\"uy\"uk harflerle sayfa ortalanarak (T\"urk\c{c}e \"ozet i\c{c}in)
-{\bf \"OZET} ve ({\.I}ngilizce \"ozet i\c{c}in) {\bf SUMMARY}
-yaz\i lmal\i d\i r.
+Simülasyon aracında, Semtech Şirketi tarafından sağlanan, LoRa haberleşmesi bağlantı kalitesi modeli kullanılmıştır. Aynı ve farklı yayılma faktörlerine sahip LoRa haberleşmelerinin girişim modeli için ise, önceki akademik çalışmalarda kullanılan modeller kullanılmıştır. Paketlerin iletim sonuçları (başarılı, çakışmaya uğramış veya alıcı hassasiyeti altında kalmış) bu iki model kullanılarak hesaplanmıştır. Farklı kablosuz haberleşme teknolojilerinin yarattığı parazitler göz ardı edilmiştir. Simülasyon aracı ile çeşitli ağ geçidi sayısı, uç düğüm sayısı, ağ topolojisi yarıçapı, paket büyüklüğü, paket üretilme sıklığı ile üretilmiş çıktılar paylaşılmış ve simülasyon aracının ürettiği sonuçların doğruluğu incelenmiştir.
 
-T\"urk\c{c}e tezlerde T\"urk\c{c}e \"ozetin \.Ingilizce \"ozetten 
-\"once olmas{\i} \"onerilir.
+Bu çalışmada yayılma faktörü seçiminin ağ performansına etkisi detaylı olarak incelenmiştir. Çakışma sayısını artıran durumlar incelenmiştir ve bu durumların değerlendirilmesi ile çakışma sayısını düşürmek için alınabilecek önlemler anlatılmıştır. Bunların yanında, en verimli yayılma faktörü seçimi için makine öğrenmesi kullanan yeni bir yöntem önerilmiştir. Akıllı yayılma faktörü ataması adını verdiğimiz bu yeni yöntem için Destek Vektör Makinesi (DVM) ve Karar Ağacı Öğrenmesi (KAÖ) makine öğrenmesi yöntemleri kullanılmıştır. Bu yöntemde ilk olarak ağ geçitleri ağdaki tüm düğümlerin konumlarını, haberleşmelerinde kullandıkları yayılma faktörlerini ve haberleşme sonuçlarını kayıt altına alırlar. Daha sonra ağ geçitleri biriktirilen bu veriler üzerinde DVM veya KAÖ yöntemleri ile bir haberleşme tahmin modeli eğitirler. Eğitilen bu model ile uç düğümlerin sonraki haberleşmeleri için en uygun yayılma faktörü bulunur. Bu model ile her bir uç düğüm için en düşük yayılma faktöründen en yükseğe doğru sırayla haberleşme sonucu tahmin edilir. Haberleşme sonucu başarılı olarak tahmin edilen en düşük yayılma faktörü o uç düğüm için seçilir. Ağ geçitleri uç düğümlere yeni yayılma faktörlerini iletir. Uç düğümler sonraki haberleşmelerinde akıllı yayılma faktörü ataması yöntemi ile bulunmuş yeni yayılma faktörlerini kullanır.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
+Akıllı yayılma faktörü ataması yöntemi, geliştirilen simülasyon aracına entegre edilmiştir. Geliştirilen araç öncelikle uç düğümlere rastgele olarak yayılma faktörü atar ve ağı simüle eder. Daha sonra biriktirilen haberleşme kayıtları kullanılarak akıllı yayılma faktörü ataması tahmin modeli oluşturulur ve hesaplanan yeni yayılma faktörleri ile aynı ağ yeniden simüle edilir.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent imperdiet, nisi 
-nec aliquam cursus, dui turpis mollis nisl, ac consequat tellus sapien sit amet 
-magna. Duis vel venenatis velit. Vestibulum ante ipsum primis in faucibus orci 
-luctus et ultrices posuere cubilia Curae; Proin malesuada risus nec metus dapibus 
-eu tincidunt lectus dignissim. 
+Simülasyon sonuçları göstermektedir ki, akıllı yayılma faktörü ataması yöntemi, rastgele yayılma faktörü ataması ve en düşük yayılma faktörü ataması yöntemlerine göre daha iyi ağ paket iletilme oranı ve toplam iletim enerji tüketimi çıktısı vermektedir. KAÖ makine öğrenmesi yöntemi, DVM makine öğrenmesi yöntemine göre daha iyi ağ performansı sağlamaktadır. Simülasyon sonuçlarına göre kullanılan bu iki akıllı yayılma faktörü ataması yöntemi özellikle yoğun uç düğüm dağılımına sahip LoRaWAN ağlarında, umut vadeden ağ performans iyileştirmesi sağlamaktadır.
