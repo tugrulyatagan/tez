@@ -2,7 +2,7 @@
 \chapter{SIMULATION ENVIRONMENT}\label{ch:simulation_environment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A discrete event simulator is developed in Python to study the effects of different spreading factor strategies in LoRaWANs. LoRaWAN spreading factor simulation tool source code is available at GitHub \cite{tugrul_yatagan_2019_2579366}. Simulation tool supports custom LoRaWAN topologies as well as randomly generated LoRaWAN topologies. Simulator can generate uniformly distributed circular shape network topology with following input parameters: radius (r) in meter (m), number of nodes and number of gateways. Global simulation input parameters are simulation duration in second (s), packet size in Byte (B), packet generation rate in packets per second (pps) and spreading factor assignment method. With these inputs, the simulator produces total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage (PDR), network throughput in bits per second (bps) and total transmit energy consumption in Joule (J). Simulator also produces prediction accuracy percentage and confusion matrix for machine learning schemes. 
+A discrete event simulator is developed in Python to study the effects of various spreading factor strategies in LoRaWANs. LoRaWAN spreading factor simulation tool source code is available at GitHub \cite{tugrul_yatagan_2019_2579366}. Simulation tool supports custom LoRaWAN topologies as well as randomly generated LoRaWAN topologies. Simulator can generate uniformly distributed circular shape network topology with following input parameters: radius (r) in meter (m), number of nodes and number of gateways. Global simulation input parameters are simulation duration in second (s), packet size in Byte (B), packet generation rate in packets per second (pps) and spreading factor assignment method. With these inputs, the simulator produces total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage (PDR), network throughput in bits per second (bps) and total transmit energy consumption in Joule (J). Simulator also produces prediction accuracy percentage and confusion matrix for machine learning schemes. 
 
 The simulation tool LoRaWAN network gateway placement for various number of gateways can be found in Figure in Figure \ref{fig:topology}. Simulation tool first places gateways by number of gateways input. The tool homogeneously distributes gateways over network by keeping them apart as possible. Then the tool randomly places end nodes in  network radius.
 
@@ -78,7 +78,7 @@ Maximum transmit power for European ISM band LoRa default channels can be found 
 
 \begin{table}
 \centering
-\caption{Gateway sensitivity for different spreading factors \cite{SX1276}.}
+\caption{Gateway sensitivity for various spreading factors \cite{SX1276}.}
 \label{table:gw_sf_sensitivity}
 \begin{tabular}{|c|c|c|c|c|c|c|c|}
 \hline
@@ -90,7 +90,7 @@ Maximum transmit power for European ISM band LoRa default channels can be found 
 \end{tabular}
 \end{table}
 
-Receive sensitivity of a LoRa gateway for different spreading factors and bandwidths in dBm unit can be found in Table \ref{table:gw_sf_sensitivity}. In the simulator, 125 kHz bandwidth receive sensitivities are used.
+Receive sensitivity of a LoRa gateway for various spreading factors and bandwidths in dBm unit can be found in Table \ref{table:gw_sf_sensitivity}. In the simulator, 125 kHz bandwidth receive sensitivities are used.
 
 Free space propagation loss is calculated as \cite{TR136.942}:
 
@@ -180,7 +180,7 @@ Relationships between these classes can be seen in UML class diagram shown in Fi
 
 \subsection{Installation}
 
-The simulation tool is developed and tested with Python 3.x. Python can be downloaded from official web page \url{https://www.python.org/downloads}
+The simulation tool is developed and tested with Python 3.x \cite{python}.
 
 The simulation tool requires specific Python modules to run. All of these modules can be installed by "pip" Python package manager. A new Python module can be installed with "pip install" command. Required Python modules for the simulation tool are:
 
