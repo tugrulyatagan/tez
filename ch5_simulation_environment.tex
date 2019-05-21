@@ -2,7 +2,7 @@
 \chapter{SIMULATION ENVIRONMENT}\label{ch:simulation_environment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-A discrete event simulator is developed in Python to study the effects of various spreading factor strategies in LoRaWANs. LoRaWAN spreading factor simulation tool source code is available at GitHub \cite{tugrul_yatagan_2019_2579366}. Simulation tool supports custom LoRaWAN topologies as well as randomly generated LoRaWAN topologies. Simulator can generate uniformly distributed circular shape network topology with following input parameters: radius (r) in meter (m), number of nodes and number of gateways. Global simulation input parameters are simulation duration in second (s), packet size in Byte (B), packet generation rate in packets per second (pps) and spreading factor assignment method. With these inputs, the simulator produces total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage (PDR), network throughput in bits per second (bps) and total transmit energy consumption in Joule (J). Simulator also produces prediction accuracy percentage and confusion matrix for machine learning schemes. 
+A discrete event simulator is developed in Python to study the effects of various spreading factor strategies in LoRaWANs. LoRaWAN spreading factor simulation tool source code is available at GitHub \cite{tugrul_yatagan_simlorasf}. Simulation tool supports custom LoRaWAN topologies as well as randomly generated LoRaWAN topologies. Simulator can generate uniformly distributed circular shape network topology with following input parameters: radius (r) in meter (m), number of nodes and number of gateways. Global simulation input parameters are simulation duration in second (s), packet size in Byte (B), packet generation rate in packets per second (pps) and spreading factor assignment method. With these inputs, the simulator produces total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage (PDR), network throughput in bits per second (bps) and total transmit energy consumption in Joule (J). Simulator also produces prediction accuracy percentage and confusion matrix for machine learning schemes. 
 
 The simulation tool LoRaWAN network gateway placement for various number of gateways can be found in Figure in Figure \ref{fig:topology}. Simulation tool first places gateways by number of gateways input. The tool homogeneously distributes gateways over network by keeping them apart as possible. Then the tool randomly places end nodes in  network radius.
 
@@ -60,19 +60,6 @@ P^{dBm}_{RX} = P^{dBm}_{TX} + G^{dB}_{SYS} - L^{dB}_{SYS} - L^{dB}_{PATH}
 \end{equation}
 
 Where, $P^{dBm}_{RX}$ is the expected receive power at the receiver. $P^{dBm}_{TX}$ is the transmit power of the transmitter. $G^{dB}_{SYS}$ is the system gains such as transmitter and receiver antenna gains. $L^{dB}_{SYS}$ is the system losses such as transmitter and receiver line, circuit, antenna losses. $L^{dB}_{PATH}$ is the propagation path loss between transmitter and receiver antennas in open space. In the simulator, it is assumed that sum of system gains $G^{dB}_{SYS}$ and system losses $L^{dB}_{SYS}$ is +7 dB.
-
-\begin{table}
-\centering
-\caption{EU863-870 ISM band LoRa default channels \cite{lorawan.regional.parameters}.}
-\label{table:max_tx_power}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Frequency (MHz)} & \textbf{Bandwidth (kHz)} & \textbf{Max EIRP (dBm)} \\ \hline
-      868.1 &   125 &   14 \\ \hline
-      868.3 &   125 &   14 \\ \hline
-      868.5 &   125 &   14 \\ \hline
-\end{tabular}
-\end{table}
 
 Maximum transmit power for European ISM band LoRa default channels can be found in Table \ref{table:max_tx_power}. In the simulator, it is assumed that nodes always select maximum allowed transmit power, which is 14 dBm. Different channel transmissions are independent from each other. But, in this work we focus on spreading factor orthogonality. Thus, only single channel transmissions are utilized in the simulator.
 

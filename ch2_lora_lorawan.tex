@@ -1,8 +1,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\chapter{LORA \& LORAWAN}\label{ch:lora_lorawan}
+\chapter{LORA}\label{ch:lora_lorawan}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{LoRa}
+\section{LoRa Modulation}
 
 LoRa is a proprietary physical layer radio/chipset technology that provides wireless link solution for low power wide area networks developed by Semtech Corporation \cite{semtech}. It uses proprietary spread spectrum modulation technique that is the derivative of Chirp Spread Spectrum (CSS). CSS was originally developed for radar applications in the 1940’s. A chirp is a sinusoidal signal of which frequency increases over time \cite{1091721}. Chirp frequency increases linearly and sweeps the entire bandwidth \cite{AN1200.22}. An example chirp is visualized in Figure \ref{fig:lora_chirp}.
 
@@ -66,7 +66,7 @@ When bandwidth and code rate are constant, as the spreading factor increases, th
 
 \subsection{Spreading Factor Assignment Issue}
 
-Simultaneous different spreading factor transmissions are orthogonal to each other up to some extent. Which means that, a LoRa gateway can simultaneously receive multiple transmissions with different spreading factors. However, simultaneous transmissions with the same spreading factor may not be received by the gateway due to collision. For this reason, spreading factor assignment of nodes is crucial for network performance.
+Simultaneous different spreading factor transmissions are orthogonal to each other up to some extent. Which means that, a LoRa gateway can simultaneously receive multiple transmissions with different spreading factors. However, simultaneous transmissions with the same spreading factor may not be received by the gateway due to collision. For this reason, spreading factor assignment of nodes is crucial for network performance \cite{8030482}.
 
 In a LoRaWAN network, initially, a node is not aware of how far away it is from a gateway. However, a node can guess the distance from a gateway by observing received signal power of a downlink transmission. If received signal power of a downlink transmission is too high, then node can decrease its next transmission spreading factor to decrease power consumption. This spreading factor assignment method is called lowest possible spreading factor assignment scheme for the rest of the thesis. Lowest possible spreading factor assignment scheme is commonly used in LoRaWAN deployments. Also, a gateway can request from a node to decrease its spreading factor or transmit power.
 
@@ -80,29 +80,42 @@ In Figure \ref{fig:collision}, a LoRaWAN network deployed with a single gateway 
 \label{fig:collision}
 \end{figure}
 
+
 \section{LoRaWAN}
 
-LoRa has an open standard medium access control (MAC) layer protocol called LoRaWAN which is designed for large scale LoRa networks considering well known LPWAN challenges and their best practice solutions. LoRaWAN provides lightweight but powerful standard for wide range of LoRa IoT applications. LoRaWAN is developed and maintained by LoRa Alliance \cite{lora_alliance}. LoRa Alliance is an open, non-profit organization dedicated to standardization of LoRaWAN. LoRaWAN provides inter-operability between different LoRa networks. LoRa can be used as a wireless link technology without complying LoRaWAN, however this would break inter-operability between different LoRa networks. LoRaWAN is based on pure ALOHA medium access which means that end nodes do not check whether the channel is free or not before transmission, accepting the possibility of a collision. A typical LoRaWAN network consists of three network entities which are end node, gateway and network server.
+LoRa has an open standard medium access control (MAC) layer protocol called LoRaWAN which is designed for large scale LoRa networks considering well known LPWAN challenges and their best practice solutions. LoRaWAN provides lightweight but powerful standard for wide range of LoRa IoT applications. LoRaWAN is developed and maintained by LoRa Alliance \cite{lora_alliance}. LoRa Alliance is an open, non-profit organization dedicated to standardization of LoRaWAN. LoRaWAN provides inter-operability between different LoRa networks. LoRa can be used as a wireless link technology without complying LoRaWAN, however this would break inter-operability between different LoRa networks. LoRaWAN is based on pure ALOHA medium access which means that end nodes do not check whether the channel is free or not before transmission, accepting the possibility of a collision. 
 
-\subsection{End node}
+\subsection{Network Structure}
 
-LoRaWAN end node (EN) is a low power embedded device that only communicates to gateways. Single end node can communicate to multiple gateways. This communication architecture is called star of stars network topology. LoRaWAN star of stars network architecture is visualized in Figure \ref{fig:lorawan_topology}. LoRaWAN standard defines three classes for end devices which are Class A, Class B, and Class C. Different classes provide LPWAN solutions to different applications and deployments. Class A end nodes generate uplink transmission at any time and only receive a period of time after uplink transmission. Class B end nodes extend Class A behavior by adding scheduled receive windows for downlink transmission. Receive window is synchronized using a beacon packet transmitted by gateways. Class C end nodes extend Class A behavior by keeping receive window open all the time except uplink transmission. This provides Class C end nodes with low latency downlink communication, which requires more power consumption. In this thesis, only Class A end devices are considered since Class A behavior leads to the lowest power consumption.
+A typical LoRaWAN network consists of three network entities which are end node, gateway and network server.
 
-\subsection{Gateway}
+\subsubsection{End Node}
+
+LoRaWAN end node (EN) is a low power embedded device that only communicates to gateways. Single end node can communicate to multiple gateways. This communication architecture is called star of stars network topology. LoRaWAN star of stars network architecture is visualized in Figure \ref{fig:lorawan_topology}. LoRaWAN standard defines three classes for end devices which are Class A, Class B, and Class C. Different classes provide LPWAN solutions to different applications and deployments.
+
+\begin{itemize}
+  \item \textbf{Class A} end nodes generate uplink transmission at any time and only receive a period of time after uplink transmission (pure ALOHA manner). The first receive window (Rx1) is opened a period of time after uplink transmission at the same channel, the second receive window (Rx2) is opened at different predefined channel. Class A offers lowest energy consumption. Class A behaviour is the default operation mode of LoRaWAN end devices.
+  \item \textbf{Class B} end nodes extend Class A behavior by adding scheduled periodic receive windows (Rx2) for downlink transmission duration. Receive window is synchronized using a beacon packet transmitted by gateways.
+  \item \textbf{Class C} end nodes extend Class A behavior by keeping receive window (Rx2) open all the time except uplink transmission duration. This provides Class C end nodes with low latency downlink communication, which requires more power consumption. Thus, Class C is suitable for applications which are delay intolerant and end devices which are connected to power grid.
+\end{itemize}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig/lorawan_class.png}
+\vspace*{4mm}
+\caption{LoRaWAN class A, B and C TX/RX timing diagram \cite{witekio}.}
+\label{fig:lorawan_class}
+\end{figure}
+
+In this thesis, only Class A end devices are considered since Class A behavior leads to the lowest power consumption.
+
+\subsubsection{Gateway}
 
 LoRaWAN gateway (GW) is a device that receive/transmit packets coming from/to end nodes. A typical gateway can receive from multiple channels at the same time. Gateways are usually connected to power grid, so power consumption of a gateway is insignificant in most of the deployments.
 
-\subsection{Network server}
+\subsubsection{Network Server}
 
 LoRaWAN network server (NS) is a server that provides MAC layer processing. Network server routes messages from application to end nodes and vice versa. Network server can be used for tweaking end node parameters like channel, transmit power and spreading factor to increase network performance.
-
-% \begin{figure}
-% \centering
-% \includegraphics[width=\linewidth]{fig/lorawan_network.png}
-% \vspace*{4mm}
-% \caption{LoRaWAN network architecture. \cite{lorawan.technical.overview}}
-% \label{fig:lorawan_network}
-% \end{figure}
 
 \begin{figure}
 \centering
@@ -112,5 +125,38 @@ LoRaWAN network server (NS) is a server that provides MAC layer processing. Netw
 \label{fig:lorawan_topology}
 \end{figure}
 
-TODO Adaptive Data Rate (ADR) TODO Page 8 of 101 \cite{lorawan.specification}.
-TODO Regulations duty cycle and EIRP.
+\subsection{Packet Structure}
+LoRaWAN specification describes the communication protocol and packaging format. LoRaWAN PHY and MAC layer packet structures can be seen in Figure \ref{fig:lorawan_mac}. PHY layer packet consist of a preamble, an header, a header CRC, a payload and payload CRC. The MAC payload consist of a frame header, a frame port and a frame payload. The frame header consist of a device address, a frame control field, a frame counter and a frame options. Frame control field is used for Adaptive Data Rate (ADR) feature. NS is able to ask to an end node to modify it's spreading factor. If ADR bit in the frame control field is set, then spreading factor of the end node's future transmissions are controlled by the NS. NS provides new spreading factor information in frame options field \cite{lorawan.specification}. The ADR algorithm is not standardized in LoRaWAN protocol. ADR implementation is left to the network operators. If ADR feature is enabled in a network, then the ADR algorithm should select a spreading factor which is high enough to provide a reliable link and low enough to minimize transmission air time to avoid collisions.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{fig/lorawan_mac.png}
+\vspace*{4mm}
+\caption{LoRaWAN packet format \cite{lorawan.specification}}
+\label{fig:lorawan_mac}
+\end{figure}
+
+
+\section{ISM Band Regulations}
+LoRaWAN operates in license free Industrial, Scientific, and Medical (ISM) bands. It operates in 902-928 MHz in US and 863-870 MHz in Europe \cite{lorawan.regional.parameters}. ISM bands are subject to radio transmission time regulations to prevent any device to occupy the channel too long. So, transmissions are required to either adopt listen before talk policy or duty cycle restrictions. Most of the LPWAN technologies adopt duty cycle restrictions since listen before talk policy requires much more power consumption. LoRaWAN obeys duty cycle restrictions. Also, ISM bands are subject to effective isotropic radiated power (EIRP) restrictions. Rest of this thesis, European ISM band regulations are considered.
+
+\begin{itemize}
+  \item \textbf{Duty Cycle Restriction} is a limitation on percentage of air time. For example, 1\% duty cycle restriction enforces a device such that single transmission cannot exceed 3.6 seconds and total time on air in one hour cannot exceed 36 seconds. Duty cycle limitations for different European ISM channels can be found in Table \ref{table:max_tx_power}. This limitation is applied for every radio device who don't adopt listen before talk policy. This includes all LoRaWAN end nodes and gateways.
+  \item \textbf{Effective Isotropic Radiated Power Restriction} sets maximum allowed transmit power of transmitter. Maximum allowed effective radiated power for different European ISM channels can be found in Table \ref{table:max_tx_power}.
+\end{itemize}
+
+
+\begin{table}
+\centering
+\caption{EU863-870 ISM band LoRa channels \cite{EN300.220} \cite{lorawan.regional.parameters}.}
+\label{table:max_tx_power}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Frequency (MHz)} & \textbf{Bandwidth (kHz)} & \textbf{Max Duty Cycle (\%)} & \textbf{Max ERP (dBm)} \\ \hline
+      863.0 - 868.0  &   125 &   1   &   14 \\ \hline
+      868.0 - 868.6  &   125 &   1   &   14 \\ \hline
+      868.7 - 869.2  &   125 &   0.1 &   14 \\ \hline
+      869.4 - 869.65 &   125 &   10  &   14 \\ \hline
+      869.7 - 870.0  &   125 &   1   &   14 \\ \hline
+\end{tabular}
+\end{table}

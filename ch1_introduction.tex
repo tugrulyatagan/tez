@@ -33,8 +33,6 @@ There are several emerging and competing LPWAN technologies. LoRa, Sigfox, NB-Io
 
 LoRa can adjust data rate by spreading symbols within a fixed channel bandwidth. This enables tradeoff between receive sensitivity and air time of transmission \cite{7803607}. LoRa supports 6 different spreading factor (SF) options. Simultaneous same spreading factor transmissions are prone to collision, however, different spreading factor transmissions in the same channel are orthogonal to each other. Thus, spreading factor assignment is crucial for overall network performance.
 
-TODO \cite{8030482}
-
 \section{Contribution}
 In this work, a LoRa discrete event simulator is developed from scratch to study the performance of different LoRa spreading factor assignment strategies. The tool is capable of simulating multiple node and multiple gateway LoRaWAN networks. The simulation tool can be fed with input parameters such as number of gateways, number of nodes, network radius, packet size, packet generation rate and with these inputs the tool produces simulation results such as total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage, network throughput, total transmit energy consumption. 
 
