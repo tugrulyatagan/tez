@@ -8,7 +8,7 @@ LoRa is a proprietary physical layer radio/chipset technology that provides wire
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=.6\linewidth]{fig/lora_chirp.png}
+\includegraphics[width=.7\linewidth]{fig/lora_chirp.png}
 \vspace*{5mm}
 \caption{A CSS up-chirp in time and frequency domain. \cite{sghoslya_lora}}
 \label{fig:lora_chirp}
@@ -115,7 +115,7 @@ LoRaWAN gateway (GW) is a device that receive/transmit packets coming from/to en
 
 \subsubsection{Network Server}
 
-LoRaWAN network server (NS) is a server that provides MAC layer processing. Network server routes messages from application to end nodes and vice versa. Network server can be used for tweaking end node parameters like channel, transmit power and spreading factor to increase network performance.
+LoRaWAN network server (NS) is a server that provides MAC layer processing. Network server routes messages from application to end nodes and vice versa. Network server can be used for tweaking end node parameters like channel, transmit power and spreading factor to increase network performance. NS is the brain of the LoRaWAN network. All process hungry calculations and applications can be run in NS. For example, NS can locate end node locations by triangulation if an uplink transmission is received by at least 3 gateways.
 
 \begin{figure}
 \centering
