@@ -1108,7 +1108,7 @@ before the jury whose signatures are below.
    &  &  \\
    &  &  \\
                         & \bf{\th@juriuc} & 
-.............................. \\
+ \\
    & \th@juriucuniv  &  \\
    &  &  \\
    &  &  \\
