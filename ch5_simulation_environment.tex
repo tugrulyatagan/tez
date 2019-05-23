@@ -131,7 +131,7 @@ To calculate interfering power at receiver, we should consider the case where tw
 P_{rc,y}^{interf} = \dfrac{P_{rc,y}(t_{interf})}{t_{x}}
 \end{equation}
 
-Where $t_{x}$ is transmission duration of referenced signal. $t_{interf}$ is overlapping duration between referenced signal and interfering signal. Transmission duration of a packet can be calculated by data rate $R_{b}$ and packet size $PS$. Data rate of a LoRa transmission is already expressed in Equation \ref{eq:bit_rate_sf}. Duration of a LoRa transmission can be calculated as:
+Where $t_{x}$ is transmission duration of referenced signal. $t_{interf}$ is overlapping duration between referenced signal and interfering signal. Transmission duration of a packet can be calculated by bit rate $R_{b}$ and packet size $PS$. Bit rate of a LoRa transmission is already expressed in Equation \ref{eq:bit_rate_sf}. Duration of a LoRa transmission can be calculated as:
 
 \begin{equation} \label{eq:transmission_duration}
 t_{x} = \dfrac{8 \times PS|_{B}}{R_{b}|_{bps}}  \ s
@@ -178,7 +178,7 @@ The simulation tool requires specific Python modules to run. All of these module
   \item scikit-learn
 \end{itemize}
 
-\subsection{Command Line Interface Usage}
+\subsection{Command line interface}
 
 Command line interface examples of the simulation tool are given below:
 
