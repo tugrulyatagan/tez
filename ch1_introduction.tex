@@ -36,19 +36,19 @@ LoRa can adjust data rate by spreading symbols within a fixed channel bandwidth.
 \section{Contribution}
 In this work, a LoRa discrete event simulator is developed from scratch to study the performance of different LoRa spreading factor assignment strategies. The tool is capable of simulating multiple node and multiple gateway LoRaWAN networks. The simulation tool can be fed with input parameters such as number of gateways, number of nodes, network radius, packet size, packet generation rate and with these inputs the tool produces simulation results such as total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage, network throughput, total transmit energy consumption. 
 
-In this work, first difficulty of spreading factor assignment of nodes for both single gateway and multiple gateway networks are described. It is shown that, how spreading factor assignment effects collisions and network performance. Then an avoidance mechanism is proposed to decrease collisions. A machine learning based spreading factor assignment approach is proposed. Support Vector Machine (SVM) and Decision Tree Classifier (DTC) machine learning methods are employed and the introduced schemes are called as smart spreading factor assignment schemes. Smart SF schemes are integrated into the simulation tool. The performance of the smart schemes are compared with the performance of the lowest spreading factor assignment scheme. It is shown that the proposed smart spreading factor assignment schemes give promising results.
+In this work, first, spreading factor assignment challenge for both single gateway and multiple gateway networks are described. It is shown how spreading factor assignment effects collisions and network performance. Then, an avoidance mechanism is proposed to decrease number of collisions. A machine learning based spreading factor assignment approach is proposed. Support Vector Machine (SVM) and Decision Tree Classifier (DTC) machine learning methods are employed and the introduced schemes are called as smart spreading factor assignment schemes. Smart SF schemes are integrated into the simulation tool. The performance of the smart schemes are compared with the performance of the lowest spreading factor assignment scheme. It is shown that the proposed smart spreading factor assignment schemes give promising results.
 
 \section{Organization of the Thesis}
 This thesis is organized as follows:
 
-Chapter \ref{ch:lora_lorawan} provides background information about LoRa and LoRaWAN. First, LoRa spreading factor and spreading factor assignment issue is covered, then, LoRaWAN and LoRaWAN network entities are explained.
+Chapter \ref{ch:lora_lorawan} provides background information about LoRa and LoRaWAN. First, LoRa spreading factor and spreading factor assignment issue is covered. Then, LoRaWAN architecture and LoRaWAN network entities are explained.
 
 Other recent related works are summarized in Chapter \ref{ch:related_works}.
 
 Chapter \ref{ch:proposed_technique} describes the proposed smart spreading factor assignment techniques. Two different machine learning method is proposed to solve spreading factor assignment issue described in Chapter \ref{ch:lora_lorawan}.
 
-Simulation environment is described in Chapter \ref{ch:simulation_environment}. First, employed link model and interference model are explained, then, software structure of the simulation tool is described.
+Simulation environment is described in Chapter \ref{ch:simulation_environment}. First, employed link model and interference model are explained. Then, software structure of the simulation tool is described.
 
-Simulation results are shown and discussed in Chapter \ref{ch:simulation_results}. Foremost, single gateway network topology simulation results are shown, then, multiple gateway network topology simulation results alongside with smart spreading factor scheme simulation results are shown. 
+Simulation results are shown and discussed in Chapter \ref{ch:simulation_results}. Foremost, single gateway network topology simulation results are shown. Then, multiple gateway network topology simulation results alongside with smart spreading factor scheme simulation results are shown. 
 
 Finally, Chapter \ref{ch:conclusion} concludes the thesis by giving future directions.
