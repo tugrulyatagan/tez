@@ -7,7 +7,7 @@ Number of Internet of Things (IoT) applications increased exponentially in last 
 \begin{itemize}
   \item \textbf{Communication range:} LPWAN end devices are expected to communicate over tens of kilometers. LPWAN radio technology should be easy to decode and resilient to interference.
   \item \textbf{Device battery life:} Almost all of the LPWAN end devices run on batteries. End nodes should not be power hungry. End nodes are expected to achieve up to 10 years of battery life with a single AA battery \cite{7815384}.
-  \item \textbf{Scalability:} LPWAN technologies should support densely populated wireless networks. Network performance should not be effected dramatically as number of end devices increases.
+  \item \textbf{Scalability:} LPWAN technologies should support densely populated wireless networks. Network performance should not be affected dramatically as number of end devices increases.
   \item \textbf{Device cost:} Radio chip of the end nodes should be as low as possible (under \$10). End devices should not require any expensive calculation or processing units. If any subscription cost exists, then it should be low too.
 \end{itemize}
 
@@ -34,9 +34,9 @@ There are several emerging and competing LPWAN technologies. LoRa, Sigfox, NB-Io
 LoRa can adjust data rate by spreading symbols within a fixed channel bandwidth. This enables tradeoff between receive sensitivity and air time of transmission \cite{7803607}. LoRa supports 6 different spreading factor (SF) options. Simultaneous same spreading factor transmissions are prone to collision, however, different spreading factor transmissions in the same channel are orthogonal to each other. Thus, spreading factor assignment is crucial for overall network performance.
 
 \section{Contribution}
-In this work, a LoRa discrete event simulator is developed from scratch to study the performance of different LoRa spreading factor assignment strategies. The tool is capable of simulating multiple node and multiple gateway LoRaWAN networks. The simulation tool can be fed with input parameters such as number of gateways, number of nodes, network radius, packet size, packet generation rate and with these inputs the tool produces simulation results such as total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage, network throughput, total transmit energy consumption. 
+In this work, a LoRa discrete event simulator is developed from scratch to study the performance of various LoRa spreading factor assignment strategies. The tool is capable of simulating multiple node and multiple gateway LoRaWAN networks. The simulation tool can be fed with input parameters such as number of gateways, number of nodes, network radius, packet size, packet generation rate and with these inputs the tool produces simulation results such as total number of generated packets, number of successfully received packets, number of interfered packets, number of under sensitivity packets, network packet delivery ratio percentage, network throughput, total transmit energy consumption. 
 
-In this work, first, spreading factor assignment challenge for both single gateway and multiple gateway networks are described. It is shown how spreading factor assignment effects collisions and network performance. Then, an avoidance mechanism is proposed to decrease number of collisions. A machine learning based spreading factor assignment approach is proposed. Support Vector Machine (SVM) and Decision Tree Classifier (DTC) machine learning methods are employed and the introduced schemes are called as smart spreading factor assignment schemes. Smart SF schemes are integrated into the simulation tool. The performance of the smart schemes are compared with the performance of the lowest spreading factor assignment scheme. It is shown that the proposed smart spreading factor assignment schemes give promising results.
+In this work, first, spreading factor assignment challenge for both single gateway and multiple gateway networks are described. It is shown how spreading factor assignment effects collisions and network performance. Then, an avoidance mechanism is proposed to decrease number of collisions. A machine learning based spreading factor assignment approach is proposed. Support Vector Machine (SVM) and Decision Tree Classifier (DTC) machine learning methods are employed and the introduced schemes are called as smart spreading factor assignment schemes. Smart SF schemes are integrated into the simulation tool. The performance of the smart schemes is compared with the performance of the lowest spreading factor assignment scheme. It is shown that the proposed smart spreading factor assignment schemes give promising results.
 
 \section{Organization of the Thesis}
 This thesis is organized as follows:
@@ -45,7 +45,7 @@ Chapter \ref{ch:lora_lorawan} provides background information about LoRa and LoR
 
 Other recent related works are summarized in Chapter \ref{ch:related_works}.
 
-Chapter \ref{ch:proposed_technique} describes the proposed smart spreading factor assignment techniques. Two different machine learning method is proposed to solve spreading factor assignment issue described in Chapter \ref{ch:lora_lorawan}.
+Chapter \ref{ch:proposed_technique} describes the proposed smart spreading factor assignment techniques. Two machine learning method is utilized to solve spreading factor assignment issue described in Chapter \ref{ch:lora_lorawan}.
 
 Simulation environment is described in Chapter \ref{ch:simulation_environment}. First, employed link model and interference model are explained. Then, software structure of the simulation tool is described.
 
