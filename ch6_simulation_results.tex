@@ -2,7 +2,7 @@
 \chapter{SIMULATION RESULTS}\label{ch:simulation_results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For simulation results in this thesis, global simulation parameters are set as follows: packet size is set to 60 Bytes, simulation duration is set to 3600 seconds and traffic generation type is set as Poisson. First, single gateway and multiple gateway LoRaWAN network simulation results are presented to show correctness of the simulator. Then, smart spreading factor scheme simulation results are presented.
+For simulation results in this thesis, global simulation parameters are set as follows: packet size is set to 60 Bytes, simulation duration is set to 3600 seconds and traffic generation type is set as Poisson. First, single gateway and multiple gateway LoRaWAN network simulation results are presented to show correctness of the simulator. Then, smart spreading factor schemes simulation results are presented.
 
 \section{Single Gateway}
 
@@ -16,7 +16,7 @@ In Figure \ref{fig:sf}, PDR and transmit energy consumption plots of various spr
 \subfigure[Transmit energy]{
 \label{fig:sf_energy}
 \includegraphics[width=.7\linewidth]{{fig/sf_energy_r3000_g1_p0.01_s3600}.png}}
-\caption{PDR plot for various spreading factors. (r = 3000 m, GW = 1, ${R_{t}}$ = 0.01 pps)}
+\caption{PDR and transmit energy plots for various spreading factors. (r = 3000 m, GW = 1, ${R_{t}}$ = 0.01 pps)}
 \label{fig:sf}
 \end{figure}
 
@@ -30,7 +30,7 @@ In Figure \ref{fig:r}, PDR and transmit energy consumption plots of various netw
 \subfigure[Transmit energy]{
 \label{fig:r_energy}
 \includegraphics[width=.7\linewidth]{{fig/r_energy_g1_p0.01_s3600}.png}}
-\caption{PDR plot for various network radii. (GW = 1, SF = SF{\_}Lowest, ${R_{t}}$ = 0.01 pps)}
+\caption{PDR and transmit energy plots for various network radii. (GW = 1, SF = SF{\_}Lowest, ${R_{t}}$ = 0.01 pps)}
 \label{fig:r}
 \end{figure}
 
@@ -44,7 +44,7 @@ In Figure \ref{fig:r}, PDR and transmit energy consumption plots of various netw
 \subfigure[Transmit energy]{
 \label{fig:pr_energy}
 \includegraphics[width=.7\linewidth]{{fig/pr_energy_r3000_g1_s3600}.png}}
-\caption{PDR plot for various packet generation rates. (r = 3000 m, GW = 1, SF = SF{\_}Lowest)}
+\caption{PDR and transmit energy plots for various packet generation rates. (r = 3000 m, GW = 1, SF = SF{\_}Lowest)}
 \label{fig:pr}
 \end{figure}
 
@@ -60,7 +60,7 @@ In Figure \ref{fig:gw}, PDR and transmit energy consumption plots for various nu
 \subfigure[Transmit energy]{
 \label{fig:gw_energy}
 \includegraphics[width=.7\linewidth]{{fig/gw_energy_r3000_p0.01_s3600}.png}}
-\caption{PDR plot for various number of gateways. (r = 3000 m, SF = SF{\_}Lowest, ${R_{t}}$ = 0.01 pps)}
+\caption{PDR and transmit energy plots for various number of gateways. (r = 3000 m, SF = SF{\_}Lowest, ${R_{t}}$ = 0.01 pps)}
 \label{fig:gw}
 \end{figure}
 
@@ -80,7 +80,7 @@ In Table \ref{table:prediction_accuracy}, prediction accuracy of smart SVM and s
 \subfigure[Transmit energy]{
 \label{fig:prediction_energy}
 \includegraphics[width=.7\linewidth]{{fig/prediction_energy_r5000_g3_p0.01_s3600}.png}}
-\caption{PDR  plot for lowest and smart spreading factor schemes. (r = 5000 m, GW = 3, ${R_{t}}$ = 0.01 pps)}
+\caption{PDR and transmit energy plots for lowest and smart spreading factor schemes. (r = 5000 m, GW = 3, ${R_{t}}$ = 0.01 pps)}
 \label{fig:prediction}
 \end{figure}
 
