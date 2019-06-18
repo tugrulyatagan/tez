@@ -1019,7 +1019,7 @@ KISALTMALAR\fi\normalfont}
       \begin{list}{}{\setlength{\leftmargin}{0cm}\setlength{\rightmargin}{-2cm}}
         \vspace*{-8.5mm}
         \centering\item[]
-	\begin{textblock}{}[0,1](1.85,2.4)
+	\begin{textblock}{}[0,1](1.85,2.1)
     	   \hspace*{\kaydirmaboyuTR}
           \underline{{\bf\th@EnstituUpperTR}}\\
 	\end{textblock}
@@ -1028,6 +1028,7 @@ KISALTMALAR\fi\normalfont}
         \begin{tabular}{c}
          \th@titleFtSz\Baslikspacing \th@baslikbir \\
          \th@titleFtSz\Baslikspacing \th@baslikiki \\
+         \th@titleFtSz\Baslikspacing \th@baslikuc \\
         \end{tabular}\\
         \vspace*{55mm}
 	\hspace{-20mm}
@@ -1248,7 +1249,6 @@ ba\c{s}ar{\i} ile sunmu\c{s}tur.
         \begin{tabular}{c}
          \th@titleFtSz\Baslikspacing \th@Titlebir \\
          \th@titleFtSz\Baslikspacing \th@Titleiki \\
-         \th@titleFtSz\Baslikspacing \th@Titleuc \\
                   \\
          \th@titleFtSz\summaryname\ \\
                   \\
