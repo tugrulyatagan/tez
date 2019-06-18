@@ -2,9 +2,11 @@
 \chapter{LORA}\label{ch:lora_lorawan}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+LoRa is a proprietary physical layer radio technology that provides wireless link solution for low power wide area networks developed by Semtech Corporation \cite{semtech}.
+
 \section{LoRa Modulation}
 
-LoRa is a proprietary physical layer radio/chipset technology that provides wireless link solution for low power wide area networks developed by Semtech Corporation \cite{semtech}. It uses proprietary spread spectrum modulation technique that is the derivative of Chirp Spread Spectrum (CSS). CSS was originally developed for radar applications in the 1940’s. A chirp is a sinusoidal signal of which frequency increases over time \cite{1091721}. Chirp frequency increases linearly and sweeps the entire bandwidth \cite{AN1200.22}. An example chirp is visualized in Figure \ref{fig:lora_chirp}.
+It uses proprietary spread spectrum modulation technique that is the derivative of Chirp Spread Spectrum (CSS). CSS was originally developed for radar applications in the 1940’s. A chirp is a sinusoidal signal of which frequency increases over time \cite{1091721}. Chirp frequency increases linearly and sweeps the entire bandwidth \cite{AN1200.22}. An example chirp is visualized in Figure \ref{fig:lora_chirp}.
 
 \begin{figure}[h]
 \centering
@@ -94,7 +96,7 @@ A typical LoRaWAN network consists of three network entities, which are end node
 LoRaWAN end node (EN) is a low power embedded device that only communicates with gateways. Single end node can communicate with multiple gateways. This communication architecture is called star of stars network topology. LoRaWAN star of stars network architecture is visualized in Figure \ref{fig:lorawan_topology}. LoRaWAN standard defines three classes for end devices which are Class A, Class B, and Class C. Different classes provide LPWAN solutions to different applications and deployments.
 
 \begin{itemize}
-  \item \textbf{Class A} end nodes generate uplink transmission at any time and only receive a period of time after uplink transmission (pure ALOHA manner). First receive window (Rx1) is opened after an uplink transmission at the same channel with uplink transmission. Then, second receive window (Rx2) is opened at different predefined channel. Class A offers lowest energy consumption. Class A behavior is the default operation mode of LoRaWAN end devices.
+  \item \textbf{Class A} end nodes generate uplink transmission at any time and only receive a period of time after uplink transmission (pure ALOHA manner). First receive window (Rx1) is opened after an uplink transmission at the same channel with uplink transmission. Then, second receive window (Rx2) is opened at different predefined channel. Transmit and receive windows timing diagram can be found in Figure \ref{fig:lorawan_class}. Class A offers lowest energy consumption. Class A behavior is the default operation mode of LoRaWAN end devices.
   \item \textbf{Class B} end nodes extend Class A behavior by adding scheduled periodic receive windows (Rx2). Receive window is synchronized using a beacon packet transmitted by gateways.
   \item \textbf{Class C} end nodes extend Class A behavior by keeping receive window (Rx2) open all the time except uplink transmission duration. This provides Class C end nodes with low latency downlink communication, which requires more power consumption. Thus, Class C is suitable for applications which are delay intolerant and end devices which are connected to power grid.
 \end{itemize}
@@ -108,6 +110,8 @@ LoRaWAN end node (EN) is a low power embedded device that only communicates with
 \end{figure}
 
 In this thesis, only Class A end devices are considered since Class A behavior leads to the lowest power consumption and Class A is the default operation mode.
+
+\newpage
 
 \subsubsection{Gateway}
 
@@ -145,8 +149,7 @@ LoRaWAN operates in license free Industrial, Scientific, and Medical (ISM) bands
   \item \textbf{Effective Isotropic Radiated Power Restriction} sets maximum allowed transmit power of a transmitter. Maximum allowed effective radiated power for various European ISM channels can be found in Table \ref{table:max_tx_power}.
 \end{itemize}
 
-
-\begin{table}
+\begin{table}[h]
 \centering
 \caption{EU863-870 ISM band LoRa channels \cite{EN300.220} \cite{lorawan.regional.parameters}.}
 \label{table:max_tx_power}
