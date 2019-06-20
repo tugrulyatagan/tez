@@ -1362,7 +1362,7 @@ ba\c{s}ar{\i} ile sunmu\c{s}tur.
 \renewenvironment{thebibliography}[1]{%\singlespacing
      \vspace*{\ChapterUstenBosluk}
 
-     \chapter*{\bibname}%
+     \chapter*{\hspace{-3pt}\bibname\vspace{-19pt}}%
      \singlespacing
      \addtocontents{toc}{\protect\addvspace{-10\p@}}
      \addcontentsline{toc}{chapter}{\bf{\protect\bibnameToC}}
