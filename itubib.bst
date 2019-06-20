@@ -94,6 +94,26 @@ FUNCTION {output.nonnull}
   if$
   s
 }
+FUNCTION {output.period}
+{ 's :=
+  output.state mid.sentence =
+    { ". " * write$ }
+    { output.state after.block =
+        { add.period$ write$
+          newline$
+          "\newblock " write$
+        }
+        { output.state before.all =
+            'write$
+            { add.period$ " " * write$ }
+          if$
+        }
+      if$
+      mid.sentence 'output.state :=
+    }
+  if$
+  s
+}
 %  Supress comma 
 FUNCTION {output.nonnull.nocomma}
 { 's :=
@@ -138,6 +158,11 @@ FUNCTION {output.check.nocomma}
 FUNCTION {fin.entry}
 { add.period$
   write$
+  newline$
+}
+
+FUNCTION {finnostop.entry}
+{ write$
   newline$
 }
 
@@ -1190,7 +1215,7 @@ FUNCTION {misc}
   format.url output
   format.note output
   format.eprint output
-  fin.entry
+  finnostop.entry
   empty.misc.check
 }
 FUNCTION {phdthesis}
@@ -1271,9 +1296,9 @@ FUNCTION {techreport}
   institution "institution" bibinfo.warn output
   address "address" bibinfo.check output
   format.url output
-  format.note output
+  format.note output.period
   format.eprint output
-  fin.entry
+  finnostop.entry
 }
 
 FUNCTION {unpublished}
